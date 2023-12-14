@@ -1,17 +1,36 @@
-Compiling single file...
---------
-- Filename: D:\ht7.cpp
-- Compiler Name: TDM-GCC 4.9.2 64-bit Release
 
-Processing C++ source file...
---------
-- C++ Compiler: C:\Program Files (x86)\Dev-Cpp\MinGW64\bin\g++.exe
-- Command: g++.exe "D:\ht7.cpp" -o "D:\ht7.exe"  -I"C:\Program Files (x86)\Dev-Cpp\MinGW64\include" -I"C:\Program Files (x86)\Dev-Cpp\MinGW64\x86_64-w64-mingw32\include" -I"C:\Program Files (x86)\Dev-Cpp\MinGW64\lib\gcc\x86_64-w64-mingw32\4.9.2\include" -I"C:\Program Files (x86)\Dev-Cpp\MinGW64\lib\gcc\x86_64-w64-mingw32\4.9.2\include\c++" -L"C:\Program Files (x86)\Dev-Cpp\MinGW64\lib" -L"C:\Program Files (x86)\Dev-Cpp\MinGW64\x86_64-w64-mingw32\lib" -static-libgcc
+#include <math.h>
 
-Compilation results...
---------
-- Errors: 0
-- Warnings: 0
-- Output Filename: D:\ht7.exe
-- Output Size: 133,3701171875 KiB
-- Compilation Time: 0,70s
+int main() {
+    int a, b, c;
+    
+    printf("Nhap gia tri cua a: ");
+    scanf("%d", &a);
+    
+    printf("Nhap gia tri cua b: ");
+    scanf("%d", &b);
+    
+    printf("Nhap gia tri cua c: ");
+    scanf("%d", &c);
+
+    // Tính delta
+    int delta = b * b - 4 * a * c;
+
+    if (delta > 0) {
+        
+        float x1 = (-b + sqrt(delta)) / (2.0 * a);
+        float x2 = (-b - sqrt(delta)) / (2.0 * a);
+        printf("Nghiem cua phuong trinh la: x1 = %.2f, x2 = %.2f\n", x1, x2);
+    } else if (delta == 0) {
+        
+        float x = -b / (2.0 * a);
+        printf("Nghiem cua phuong trinh la: x = %.2f\n", x);
+    } else {
+    
+        float realPart = -b / (2.0 * a);
+        float imaginaryPart = sqrt(-delta) / (2.0 * a);
+        printf("Nghiem cua phuong trinh la: x1 = %.2f + %.2fi, x2 = %.2f - %.2fi\n", realPart, imaginaryPart, realPart, imaginaryPart);
+    }
+
+    return 0;
+}
